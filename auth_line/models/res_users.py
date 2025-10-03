@@ -18,8 +18,8 @@ class ResUsers(models.Model):
     def auth_oauth(self, provider, params):
         oauth_provider = self.env['auth.oauth.provider'].browse(provider)
         if oauth_provider.is_line_oauth:
-            id_token = params.get('id_token')
-            validation = self._verify_id_token(oauth_provider.validation_endpoint, id_token, oauth_provider.client_id)
+            access_token = params.get('id_token')
+            validation = self._verify_id_token(oauth_provider.validation_endpoint, access_token, oauth_provider.client_id)
         else:
             access_token = params.get('access_token')
             validation = super()._auth_oauth_validate(provider, access_token)
