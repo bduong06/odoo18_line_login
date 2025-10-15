@@ -24,6 +24,7 @@ class ResUsers(models.Model):
             access_token = params.get('access_token')
             validation = super()._auth_oauth_validate(provider, access_token)
 
+        _logger.debug("auth_oauth: validation %s", json.dumps(validation))
         login = self._auth_oauth_signin(provider, validation, params)
         if not login:
             raise AccessDenied()
