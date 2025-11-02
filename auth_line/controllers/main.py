@@ -116,6 +116,7 @@ class OAuthController(OAuthController):
         provider = state['p']
         ensure_db(db=dbname)
         request.update_context(**clean_context(state.get('c', {})))
+        _logger.debug("OAuthController: start")
 
         provider_obj = request.env['auth.oauth.provider'].sudo().browse(provider)
         if provider_obj.is_line_oauth == True:
