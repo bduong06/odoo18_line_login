@@ -4,10 +4,7 @@
 {
     'name': 'OAuth2 Authentication with Line Login',
     'category': 'Tools',
-    'description': """
-Allow users to login through Line Login Provider.
-=============================================
-""",
+    'description': '"Allow users to login through Line Login Provider."',
     'author': 'INECO LTD.,PART.',
     'depends': ['base', 'auth_oauth', 'auth_signup'],
     'data': [

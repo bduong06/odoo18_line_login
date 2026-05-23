@@ -98,6 +98,12 @@ class ResUsers(models.Model):
                     }
             raise
 
+    @api.model
+    def _generate_signup_values(self, provider, validation, params):
+        values = super()._generate_signup_values(provider, validation, params)
+        values['line_user_id'] = validation['user_id']
+        return values
+
     def _verify_id_token(self, endpoint, id_token, client_id):
         header = {
             'Content-Type': 'application/x-www-form-urlencoded'
